@@ -1,7 +1,14 @@
 const getData = async () =>{
-    const response = await fetch("https://api.covid19api.com/dayone/country/italy")
-    const data = await response.json()
-    return data
+    try{
+        const response = await fetch("https://api.covid19api.com/dayone/country/italy")
+        const data = await response.json()
+        return data
+    }
+    catch{
+        alert("Errore: dati non disponibili, riprova più tardi")
+        return {};
+    }
+    
 }
 
 const getDate = async () => {
