@@ -10,14 +10,6 @@ const getData = async () =>{
     }
 }
 
-// const getDate = (dataObj) => {
-//     let date = []
-//     dataObj.forEach(element => {
-//         date.push(new Date(element.data).toLocaleDateString())
-//     })
-//     return date;
-// }
-
 const getInfo = (dataObj, param) => {
     let info = []
     dataObj.forEach(element => {
