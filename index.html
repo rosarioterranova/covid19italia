@@ -20,24 +20,34 @@
 
 <body class="bg-light">
     <div class="jumbotron text-center">
-        <h1 class="display-4">Covid-19 Italia</h1>
-        <p class="lead">Strumento online open source per monitorare giorno per giorno il numero dei contagiati di <a href="https://it.wikipedia.org/wiki/COVID-19">COVID-19</a> in Italia.</p>
-        <p class="lead">
-            Web App di <a href="http://rosarioterranova.com">Rosario Terranova</a> |
-            Dati da <a href="https://covid19api.com/">Covid19API</a> |
-            Grafici di <a href="https://www.chartjs.org/">ChartJS</a>
-        </p>
-      </div>
+      <h1 class="display-4">Covid-19 Italia</h1>
+      <p class="lead">Strumento online open source per monitorare giorno per giorno il numero dei contagiati di <a href="https://it.wikipedia.org/wiki/COVID-19">COVID-19</a> in Italia.</p>
+      <hr>
+      <p>
+          Web App di <a href="http://rosarioterranova.com">Rosario Terranova</a> |
+          Dati Ufficiali <a href="https://github.com/pcm-dpc/COVID-19">Presidenza del Consiglio dei Ministri - Dipartimento della Protezione Civile</a> |
+          Grafici di <a href="https://www.chartjs.org/">ChartJS</a>
+      </p>
+    </div>
+    
     <div class="chart-container text-center">
         <canvas id="myChart"></canvas>
     </div>
 
-    <div class="container my-5">
-        <table class="table">
+    <div class="container table-responsive my-5">
+        <table class="table table-striped">
             <thead>
               <tr>
                 <th scope="col">Data</th>
-                <th scope="col">Contagi</th>
+                <th scope="col">Tot. ricoverati con sintomi</th>
+                <th scope="col">Tot. terapia intensiva</th>
+                <th scope="col">Tot. ospedalizzati</th>
+                <th scope="col">Tot. isolamento domic.</th>
+                <th scope="col">Nuovi positivi</th>
+                <th scope="col">Tot. positivi</th>
+                <th scope="col">Tot. dimessi guariti</th>
+                <th scope="col">Tot. deceduti</th>
+                <th scope="col">Tot. tamponi</th>
               </tr>
             </thead>
             <tbody id="table-elements">
