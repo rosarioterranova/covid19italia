@@ -64,11 +64,11 @@ const renderTable = (dataObj) =>{
         table.innerHTML += `
         <tr>
             <th scope="row">${new Date(dataObj[index].data).toLocaleDateString()}</th>
+            <td id="positives">${dataObj[index].nuovi_positivi}</td>
             <td>${dataObj[index].ricoverati_con_sintomi}</td>
             <td>${dataObj[index].terapia_intensiva}</td>
             <td>${dataObj[index].totale_ospedalizzati}</td>
             <td>${dataObj[index].isolamento_domiciliare}</td>
-            <td><b>${dataObj[index].nuovi_positivi}</b></td>
             <td>${dataObj[index].totale_positivi}</td>
             <td>${dataObj[index].dimessi_guariti}</td>
             <td>${dataObj[index].deceduti}</td>
