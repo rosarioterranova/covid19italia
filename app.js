@@ -70,7 +70,7 @@ const renderTable = (dataObj) =>{
             <td>${dataObj[index].isolamento_domiciliare}</td>
             <td>${dataObj[index].totale_positivi}</td>
             <td>${dataObj[index].variazione_totale_positivi}</td>
-            <td id="positives">${dataObj[index].nuovi_positivi}</td>
+            <td class="bg-warning">${dataObj[index].nuovi_positivi}</td>
             <td>${dataObj[index].dimessi_guariti}</td>
             <td>${dataObj[index].deceduti}</td>
             <td>${dataObj[index].casi_da_sospetto_diagnostico}</td>
