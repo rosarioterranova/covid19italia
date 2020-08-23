@@ -30,24 +30,36 @@
       </p>
     </div>
     
-    <div class="chart-container text-center">
+    <div class="container text-center spinner-container">
+      <div class="spinner-border" role="status" style="width: 5rem; height: 5rem;">
+        <span class="sr-only">Caricamento...</span>
+      </div>
+      <p>Caricamento...</p>
+    </div>
+    
+    <div class="chart-container text-center d-none data-showed">
         <canvas id="myChart"></canvas>
     </div>
 
-    <div class="container table-responsive my-5">
-        <table class="table table-striped">
+    <div class="container table-responsive my-5 d-none data-showed">
+        <table class="table table-striped table-sm ">
             <thead>
               <tr>
                 <th scope="col">Data</th>
+                <th scope="col">Ricoverati con sintomi</th>
+                <th scope="col">Terapia intensiva</th>
+                <th scope="col">Totale ospedalizzati</th>
+                <th scope="col">Isolamento domiciliare</th>
+                <th scope="col">Totale positivi</th>
+                <th scope="col">Variazione totale positivi</th>
                 <th scope="col">Nuovi positivi</th>
-                <th scope="col">Tot. ricoverati con sintomi</th>
-                <th scope="col">Tot. terapia intensiva</th>
-                <th scope="col">Tot. ospedalizzati</th>
-                <th scope="col">Tot. isolamento domic.</th>
-                <th scope="col">Tot. positivi</th>
-                <th scope="col">Tot. dimessi guariti</th>
-                <th scope="col">Tot. deceduti</th>
-                <th scope="col">Tot. tamponi</th>
+                <th scope="col">Dimessi guariti</th>
+                <th scope="col">Deceduti</th>
+                <th scope="col">Casi da sospetto diagnostico</th>
+                <th scope="col">Casi da screening</th>
+                <th scope="col">Totale casi</th>
+                <th scope="col">Tamponi</th>
+                <th scope="col">Casi testati</th>
               </tr>
             </thead>
             <tbody id="table-elements">

@@ -64,15 +64,20 @@ const renderTable = (dataObj) =>{
         table.innerHTML += `
         <tr>
             <th scope="row">${new Date(dataObj[index].data).toLocaleDateString()}</th>
-            <td id="positives">${dataObj[index].nuovi_positivi}</td>
             <td>${dataObj[index].ricoverati_con_sintomi}</td>
             <td>${dataObj[index].terapia_intensiva}</td>
             <td>${dataObj[index].totale_ospedalizzati}</td>
             <td>${dataObj[index].isolamento_domiciliare}</td>
             <td>${dataObj[index].totale_positivi}</td>
+            <td>${dataObj[index].variazione_totale_positivi}</td>
+            <td id="positives">${dataObj[index].nuovi_positivi}</td>
             <td>${dataObj[index].dimessi_guariti}</td>
             <td>${dataObj[index].deceduti}</td>
+            <td>${dataObj[index].casi_da_sospetto_diagnostico}</td>
+            <td>${dataObj[index].casi_da_screening}</td>
+            <td>${dataObj[index].totale_casi}</td>
             <td>${dataObj[index].tamponi}</td>
+            <td>${dataObj[index].casi_testati}</td>
         </tr>
         `
     }
@@ -80,6 +85,8 @@ const renderTable = (dataObj) =>{
 
 const init = async () => {
     let dataObj = await getData();
+    document.querySelectorAll(".data-showed").forEach(item => item.classList.remove("d-none"))
+    document.querySelector(".spinner-container").classList.add("d-none")
     renderChart(dataObj)
     renderTable(dataObj)
 }
