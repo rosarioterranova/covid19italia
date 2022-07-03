@@ -50,6 +50,9 @@ export default function ChartData({ covidData }) {
             },
           ],
         },
+        legend: {
+          display: false,
+        },
       },
     });
   }

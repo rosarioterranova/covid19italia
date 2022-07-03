@@ -9,59 +9,94 @@ export default function Tables({ covidData }) {
       )
       .reverse()
   );
-  const [index, setIndex] = useState(0);
+  const [pageIndex, setpageIndex] = useState(0);
   const [nextEnabled, setNextEnabled] = useState(true);
   const [prevEnabled, setPrevEnabled] = useState(false);
 
   useEffect(() => {
-    if (index === 0) {
+    if (pageIndex === 0) {
       setNextEnabled(true);
       setPrevEnabled(false);
-    } else if (index + 10 > data.length) {
+    } else if (pageIndex + 10 > data.length) {
       setNextEnabled(false);
       setPrevEnabled(true);
     } else {
       setNextEnabled(true);
       setPrevEnabled(true);
     }
-  }, [index]);
+  }, [pageIndex]);
 
-  function nextDataIndex() {
-    setIndex(index + 10);
-  }
+  const nextDatapageIndex = () => {
+    setpageIndex(pageIndex + 10);
+  };
 
-  function prevDataIndex() {
-    setIndex(index - 10);
-  }
+  const prevDatapageIndex = () => {
+    setpageIndex(pageIndex - 10);
+  };
+
+  const getDeceduti = (el, index) => {
+    if (data[index + pageIndex + 1])
+      return (
+        el.deceduti - data[index + pageIndex + 1].deceduti
+      ).toLocaleString();
+    else return "-";
+  };
+
+  const getTamponi = (el, index) => {
+    if (data[index + pageIndex + 1])
+      return (
+        el.tamponi - data[index + pageIndex + 1].tamponi
+      ).toLocaleString();
+    else return "-";
+  };
+
+  const formatDate = (date) => {
+    const dateArray = date.split("/");
+    dateArray[0] = ("0" + dateArray[0]).slice(-2);
+    dateArray[1] = ("0" + dateArray[0]).slice(-2);
+    return dateArray.join("/");
+  };
 
   return (
     <div>
       <table className="table my-3">
         <thead>
           <tr>
-            <th scope="col">Data</th>
-            <th scope="col">Nuovi Positivi</th>
-            <th scope="col">Deceduti Totali</th>
-            <th scope="col">Tamponi Totali</th>
+            <th scope="col" className="text-center">
+              Data
+            </th>
+            <th scope="col" className="text-center">
+              Positivi
+            </th>
+            <th scope="col" className="text-center">
+              Deceduti
+            </th>
+            <th scope="col" className="text-center">
+              Tamponi
+            </th>
           </tr>
         </thead>
         <tbody>
-          {data.slice(index, index + 10).map((el, index) => (
+          {data.slice(pageIndex, pageIndex + 10).map((el, index) => (
             <tr key={index}>
-              <th scope="row">{new Date(el.data).toLocaleDateString()}</th>
-              <td>{el.nuovi_positivi}</td>
-              <td>{el.deceduti}</td>
-              <td>{el.tamponi}</td>
+              <th scope="row" className="text-center">
+                {formatDate(new Date(el.data).toLocaleDateString())}
+              </th>
+              <td className="text-center">
+                {el.nuovi_positivi.toLocaleString()}
+              </td>
+              <td className="text-center">{getDeceduti(el, index)}</td>
+              <td className="text-center">{getTamponi(el, index)}</td>
             </tr>
           ))}
         </tbody>
       </table>
       <Pagination
-        onPrevPage={prevDataIndex}
-        onNextPage={nextDataIndex}
+        onPrevPage={prevDatapageIndex}
+        onNextPage={nextDatapageIndex}
         prevEnabled={prevEnabled}
         nextEnabled={nextEnabled}
-        pageIndex={index / 10 + 1}
+        pageIndex={pageIndex / 10 + 1}
         totalPages={Math.ceil(data.length / 10)}
       />
     </div>
