@@ -1,4 +1,6 @@
 import style from "./Pagination.module.css";
+import arrowLeft from "../imgs/arrow-left.svg";
+import arrowRight from "../imgs/arrow-right.svg";
 
 export default function Pagination({
   onPrevPage,
@@ -11,21 +13,21 @@ export default function Pagination({
   return (
     <div className={style.pagination}>
       <button
-        className="btn btn-primary"
+        className="btn btn-dark"
         onClick={onPrevPage}
         disabled={!prevEnabled}
       >
-        {"<"} Pagina Precedente
+        <img src={arrowLeft} alt="arrow left" />
       </button>
       <p className={style.info}>
         Pagina {pageIndex} di {totalPages}
       </p>
       <button
-        className="btn btn-primary"
+        className="btn btn-dark"
         onClick={onNextPage}
         disabled={!nextEnabled}
       >
-        Pagina Successiva {">"}
+        <img src={arrowRight} alt="arrow right" />
       </button>
     </div>
   );
